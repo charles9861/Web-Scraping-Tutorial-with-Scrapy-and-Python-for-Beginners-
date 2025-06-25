@@ -15,8 +15,8 @@ cd myproject
 3.	Generating a Spider:
 scrapy genspider example example.com
  
-
-``python
+```
+python
 1.	import scrapy
 2.	
 3.	class QuotesSpider(scrapy.Spider):
@@ -36,4 +36,4 @@ scrapy genspider example example.com
 17.	        next_page = response.css('li.next a::attr(href)').get()
 18.	        if next_page is not None:
 19.	            yield response.follow(next_page, self.parse)
-``
+```
