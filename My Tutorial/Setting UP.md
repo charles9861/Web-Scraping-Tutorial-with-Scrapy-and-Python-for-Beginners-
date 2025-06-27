@@ -87,6 +87,33 @@ ____
 4. **Process items via pipelines**
 5. **Store/export the data** (CSV, JSON, database, etc.)
 
+## 1️⃣ Creating a Scrapy Project
+2️⃣
+Narration:
+
+***"Now let’s create our first Scrapy project."***
+
+**Terminal Commands:**
+
+```python
+scrapy startproject quotes_scraper
+cd quotes_scraper
+```
+
+**Project Structure:**
+
+```quotes_scraper/
+├── scrapy.cfg
+└── quotes_scraper/
+    ├── __init__.py
+    ├── items.py    
+    ├── middlewares.py    
+    ├── pipelines.py    
+    ├── settings.py    
+    └── spiders/    
+        └── __init__.py
+```
+
 ## 🔍 What Is a Spider in Scrapy?
 
 Narration:
