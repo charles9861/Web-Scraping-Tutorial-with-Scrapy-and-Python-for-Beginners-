@@ -170,17 +170,17 @@ Narration:
 
 ## 🕷️ What Is a Spider?
 
-### ***"A spider in Scrapy is a Python class that defines how to crawl a website and what data to extract. It’s like a blueprint for where to go and what to grab."***
+ **"A spider in Scrapy is a Python class that defines how to crawl a website and what data to extract. It’s like a blueprint for where to go and what to grab."**
 
 Visual Aid: (Display a flow diagram of spider -> website -> extracted data)
 
 "Each spider needs at least:
 
-- **A name**
-
-- **A list of URLs to start from**
-
-- **A method to parse the downloaded content"**
+>- **A name**
+>
+>- **A list of URLs to start from**
+>
+>- **A method to parse the downloaded content"**
 
 ## 🤖 A Spider Is Like...
 
