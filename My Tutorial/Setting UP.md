@@ -6,6 +6,8 @@
 > ***"Hey everyone! In this tutorial, I’ll show you how to go from zero to scraping with **Scrapy** using **VS Code**. We’ll install Scrapy, set up a project, write a few spiders, and export the data in different formats."***
 
 ---
+<br><br><br>
+<br><br><br>
 
 
 ## **What Is Scrapy**
@@ -18,11 +20,14 @@
 >* **Lead generation**
 >* **Market research**
 >* **News aggregation**
+____
+<br><br><br>
+<br><br><br>
 
-
+## 🔧 **Key Features of Scrapy**
+<br><br><br>
 
 ____
-## 🔧 **Key Features of Scrapy**
 > **So what are the key features of Scrapy ?**  
 > Scrapy has many features, these include.
 >* **Fast and asynchronous**: *(Asynchronous means not happening at the same time,)* Built on top of **Twisted**, an asynchronous networking framework, which allows high-performance scraping.  
@@ -77,7 +82,8 @@ ____
 
 
 ____
-
+<br><br><br>
+<br><br><br>
 
 ## 🏗 Basic Scrapy Workflow
 
@@ -86,8 +92,18 @@ ____
 3. **Write a spider** (crawler that sends requests and parses responses)
 4. **Process items via pipelines**
 5. **Store/export the data** (CSV, JSON, database, etc.)
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
 
-## 1️⃣ Creating a Scrapy Project
+---
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+
+# 1️⃣ Creating a Scrapy Project
 
 Narration:
 
@@ -223,7 +239,10 @@ code .
 ____
 
 
-
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
 
 ### 2️⃣**Define an item**  
 
@@ -264,6 +283,10 @@ class QuoteItem(scrapy.Item):
 > "Using Items helps you keep your data organized, enforce structure, and make your code cleaner. It’s especially useful when exporting data or sending it through pipelines."
 
 ---
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
 
 ## 3️⃣ **Write a spider**
 
@@ -314,7 +337,9 @@ class QuotesSpider(scrapy.Spider):
             }
 ```
 
-## **To run this spider:**
+## 4️⃣ Running the Spider  
+
+
 **Narration:**
 
 > "Now, let’s run the spider and export the data to a JSON file."
@@ -342,78 +367,18 @@ scrapy crawl quotes -o quotes.json
 - **Collects and outputs whatever data your spider yields"**
 
 
-
-
-
-
-
-
 ____
 
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+
+    
+## **Process items via pipelines**
 
 
 
-
-
----
-
-## 2️⃣ Creating a Scrapy Project
-
-**Narration:**
-
-> "Now let’s create our first Scrapy project."
-
-**Terminal Commands:**
-
-```bash
-scrapy startproject quotes_scraper
-cd quotes_scraper
-```
-
-**Project Structure:**
-
-```
-quotes_scraper/
-├── scrapy.cfg
-└── quotes_scraper/
-    ├── __init__.py
-    ├── items.py
-    ├── middlewares.py
-    ├── pipelines.py
-    ├── settings.py
-    └── spiders/
-        └── __init__.py
-```
-
----
-
-## 3️⃣ Creating a Basic Spider
-
-**Narration:**
-
-> "Let’s create a spider that scrapes quotes from a demo site."
-
-**File:** `quotes_scraper/spiders/quotes_spider.py`
-
-```python
-import scrapy
-
-class QuotesSpider(scrapy.Spider):
-    name = "quotes"
-    start_urls = ['http://quotes.toscrape.com']
-
-    def parse(self, response):
-        for quote in response.css("div.quote"):
-            yield {
-                'text': quote.css("span.text::text").get(),
-                'author': quote.css("small.author::text").get(),
-                'tags': quote.css("div.tags a.tag::text").getall(),
-            }
-```
-
----
-
-## 4️⃣ Running the Spider
 
 
 
