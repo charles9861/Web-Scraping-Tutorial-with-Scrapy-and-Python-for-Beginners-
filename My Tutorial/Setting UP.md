@@ -93,7 +93,7 @@ Narration:
 
 ***"Now let’s create our first Scrapy project."***
 
-**Terminal Commands:**
+**Terminal Commands:**  
 📄 Script:
 ```bash
 # Create a new Scrapy project
@@ -117,10 +117,114 @@ cd quotes_scraper
 >    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── spiders/      
 >    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── __init__.py  
 
+## Installing Scrapy in a Virtual Environment
+
+Narration:
+> ***"Let’s start by setting up a virtual environment and installing Scrapy."***
+
+**Terminal Commands:**
+
+```python
+# Create and activate a virtual environment
+python -m venv scrapy_env
+
+# Windows\scrapy_env\Scripts\activate
+# macOS/Linux
+source scrapy_env/bin/activate
+
+# Install Scrapy
+pip install scrapy
+```
+
+📌 Show VS Code Terminal and demonstrate each command. Open VS Code inside the folder:
+
+```
+code .
+```
 
 
+---
+
+## 🎓 What Is an Environment in Python,and Why It Matters?
+
+**Narration:**
+
+> "Before we dive into coding, let’s talk about something important — environments."
+
+### ✅ What Is a Python Environment?
+
+> "A Python environment is like a *workspace* for your code. It contains everything your project needs to run — including Python itself, and any libraries or tools your code depends on."
+
+### 🧪 Think of it like:
+
+> "Imagine you're baking. Each recipe might need different ingredients — some recipes need chocolate chips, some need cinnamon, and some need none at all. A **Python environment** is like having a separate pantry for each recipe so that ingredients don’t get mixed up or go bad."
+
+---
+
+## ❓ Why Do We Need Virtual Environments?
+
+### 1. **Avoid Conflicts**
+
+> "Different projects often need different versions of libraries. For example, one project might use Scrapy version 2.5, while another needs version 2.10. A virtual environment keeps these separate, so one project doesn’t break the other."
+
+### 2. **Keep Things Organized**
+
+> "All dependencies for a project are stored in one folder. That makes it easy to manage, share, and reproduce the setup — especially when you share your code with someone else."
+
+### 3. **Safe Testing**
+
+> "You can test new packages or code safely without affecting your main Python installation."
+
+---
+
+## 🛠 What Happens When You Create an Environment?
+
+> "When you run this command:"
+
+```bash
+python -m venv myenv
+```
+
+> "Python creates a folder called `myenv` that contains a fresh copy of Python and a blank slate for installing packages."
+
+---
+
+## 🏁 Final Summary
+
+> "So, a Python environment helps keep your projects clean, organized, and conflict-free. It’s a best practice to create a new environment for every project — especially when working with tools like Scrapy."
 
 ____
+
+### **Narration:**
+
+>"Let’s start by setting up a virtual environment and installing Scrapy."
+
+## **Terminal Commands:**
+
+
+```bash
+# Create and activate a virtual environment
+python -m venv scrapy_env
+
+# Windows\scrapy_env\Scripts\activate
+# macOS/Linux
+source scrapy_env/bin/activate
+
+# Install Scrapy
+pip install scrapy
+```
+
+**VS Code Tip:**
+Open VS Code inside the project folder:
+
+```bash
+code .
+```
+____
+
+
+
+
 ### 2️⃣**Define an item**  
 
 
@@ -209,9 +313,25 @@ class QuotesSpider(scrapy.Spider):
                 'tags': quote.css("div.tags a.tag::text").getall(),
             }
 ```
+
+## **To run this spider:**
+**Narration:**
+
+> "Now, let’s run the spider and export the data to a JSON file."
+
+**Terminal Command:**
+
+```bash
+scrapy crawl quotes -o quotes.json
+```
+
+**Result:** Show `quotes.json` in VS Code.
+
+---
+
 ## ✅ What Happens When It Runs?
 
-"When you run this spider with the `scrapy crawl` command, Scrapy:
+"When you run this spider with the `scrapy crawl` command, Scrapy will:
 
 - **Starts at the URL you give it**
 
@@ -221,153 +341,19 @@ class QuotesSpider(scrapy.Spider):
 
 - **Collects and outputs whatever data your spider yields"**
 
-## 1️⃣ Installing Scrapy in a Virtual Environment
-
-Narration:
-> ***"Let’s start by setting up a virtual environment and installing Scrapy."***
-
-**Terminal Commands:**
-
-```python
-# Create and activate a virtual environment
-python -m venv scrapy_env
-
-# Windows\scrapy_env\Scripts\activate
-# macOS/Linux
-source scrapy_env/bin/activate
-
-# Install Scrapy
-pip install scrapy
-```
-
-**VS Code Tip:** Open VS Code inside the project folder:
-
-```
-code .
-```
 
 
 
-## 3️⃣ Creating a Basic Spider
-
-Narration:
-
-***"Let’s create a spider that scrapes quotes from a demo site."***
-
-File: `quotes_scraper/spiders/quotes_spider.py`
-
-```import scrapy
-
-class QuotesSpider(scrapy.Spider):
-    name = "quotes"
-    start_urls = ['http://quotes.toscrape.com']
-
-    def parse(self, response):
-        for quote in response.css("div.quote"):
-            yield {
-                'text': quote.css("span.text::text").get(),
-                'author': quote.css("small.author::text").get(),
-                'tags': quote.css("div.tags a.tag::text").getall(),
-            }
-```
-____
 
 
-To run this spider:
 
-```bash
-scrapy crawl quotes -o quotes.json
-```
 
 ____
 
 
 
 
-## 1️⃣ Installing Scrapy in a Virtual Environment
 
-**Narration:**
-
-> "Let’s start by setting up a virtual environment and installing Scrapy."
-> Here's how you can **explain what an environment is** and **why it's needed**, written for a beginner-friendly **tutorial script**:
-
----
-
-## 🎓 What Is an Environment in Python,and Why It Matters?
-
-**Narration:**
-
-> "Before we dive into coding, let’s talk about something important — environments."
-
-### ✅ What Is a Python Environment?
-
-> "A Python environment is like a *workspace* for your code. It contains everything your project needs to run — including Python itself, and any libraries or tools your code depends on."
-
-### 🧪 Think of it like:
-
-> "Imagine you're baking. Each recipe might need different ingredients — some recipes need chocolate chips, some need cinnamon, and some need none at all. A **Python environment** is like having a separate pantry for each recipe so that ingredients don’t get mixed up or go bad."
-
----
-
-## ❓ Why Do We Need Virtual Environments?
-
-### 1. **Avoid Conflicts**
-
-> "Different projects often need different versions of libraries. For example, one project might use Scrapy version 2.5, while another needs version 2.10. A virtual environment keeps these separate, so one project doesn’t break the other."
-
-### 2. **Keep Things Organized**
-
-> "All dependencies for a project are stored in one folder. That makes it easy to manage, share, and reproduce the setup — especially when you share your code with someone else."
-
-### 3. **Safe Testing**
-
-> "You can test new packages or code safely without affecting your main Python installation."
-
----
-
-## 🛠 What Happens When You Create an Environment?
-
-> "When you run this command:"
-
-```bash
-python -m venv myenv
-```
-
-> "Python creates a folder called `myenv` that contains a fresh copy of Python and a blank slate for installing packages."
-
----
-
-## 🏁 Final Summary
-
-> "So, a Python environment helps keep your projects clean, organized, and conflict-free. It’s a best practice to create a new environment for every project — especially when working with tools like Scrapy."
-
-____
-
-### **Narration:**
-
->"Let’s start by setting up a virtual environment and installing Scrapy."
-
-## **Terminal Commands:**
-
-
-```bash
-# Create and activate a virtual environment
-python -m venv scrapy_env
-
-# Windows\scrapy_env\Scripts\activate
-# macOS/Linux
-source scrapy_env/bin/activate
-
-# Install Scrapy
-pip install scrapy
-```
-
-**VS Code Tip:**
-Open VS Code inside the project folder:
-
-```bash
-code .
-```
 
 ---
 
@@ -429,19 +415,7 @@ class QuotesSpider(scrapy.Spider):
 
 ## 4️⃣ Running the Spider
 
-**Narration:**
 
-> "Now, let’s run the spider and export the data to a JSON file."
-
-**Terminal Command:**
-
-```bash
-scrapy crawl quotes -o quotes.json
-```
-
-**Result:** Show `quotes.json` in VS Code.
-
----
 
 ## 5️⃣ Following Links to Scrape Author Details
 
