@@ -15,7 +15,7 @@
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* **Lead generation**<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* **Market research**<br>
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* **News aggregation**<br>
-___
+---
 <br>
 
 ## 🔧 **Key Features of Scrapy**
@@ -58,8 +58,8 @@ ___
 >    >### 🧭 XPath and CSS — Two Ways to Navigate a Page
 >    >    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. **CSS Selectors**
 >    >    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "These use the same rules you’d write in CSS to style a webpage — like `div.quote > span.text`."
-
-2. **XPath Expressions**
+>   >
+>    >2. **XPath Expressions**
 
    > "XPath is a language for navigating XML and HTML trees. It’s more powerful and precise, especially when things get complex — like `//div[@class='quote']/span[@class='text']`."
 
